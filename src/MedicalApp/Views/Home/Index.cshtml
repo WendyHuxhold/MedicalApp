@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="MedicalApp">
+<head>
+    <title>MedicalApp</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">    
+    <link href="~/css/site.css" rel="stylesheet" />
+    <base href="/" />
+</head>
+<body>
+        <header>
+            
+            <center><h2>
+                M.E.T. <i class="fa fa-plus-square" aria-hidden="true"></i>
+                
+                </h2></center>
+        </header>
+        <div>
+            <a href="/">Home</a> /
+            <a href="/addCategory">Add Category</a> /
+            <a href="/reportForm">Report Form</a>
+
+        </div>
+        <hr />
+
+        <ui-view></ui-view>
+    
+    <footer>
+        <span>Medical Expense Tracking</span>
+    </footer>
+    <!-- Library Files -->
+    <script src="~/lib/angular/angular.js"></script>
+    <script src="~/lib/angular-resource/angular-resource.js"></script>
+    <script src="~/lib/angular-animate/angular-animate.js"></script>
+    <script src="~/lib/angular-touch/angular-touch.js"></script>
+    <script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="~/lib/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <!-- App Files-->
+    <script src="~/ngapp/app.js"></script>
+    <script src="~/ngapp/controllers/controllers.js"></script>
+    <script src="~/ngapp/services/services.js"></script>
+
+
+</body>
+</html>

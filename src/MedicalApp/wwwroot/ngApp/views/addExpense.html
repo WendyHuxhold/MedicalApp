@@ -1,0 +1,47 @@
+﻿<!--<script>
+    categories = ['Medical', 'Optical', 'Dental', 'Chiropractic', 'Physical Therapy', 'Pharmacy']
+</script>-->
+
+<form ng-submit="controller.addExpense()">
+    <!--<button ng-click="colors.push({})">add</button>-->
+    <h3>
+        Add Medical Expenses:
+    </h3>
+    First Name: <input ng-model="controller.newExpense.firstName" />
+    Last Name: <input ng-model="controller.newExpense.lastName" />
+    Date: <input ng-model="controller.newExpense.apptDate" />
+    
+
+        <label>
+            Category:
+            <!--<select ng-model="myCategory" ng-options="color.name for color in colors">
+                <option value="">-- choose color --</option>
+            </select>-->
+            <select ng-model="controller.newExpense.categoryType">
+                <option ng-repeat="category in controller.categories">{{category}}</option>
+                
+            </select>
+
+        </label><br />
+
+        <!--<label for="category">Category:</label>
+        //<select ng-options="item as item.label for item in items track by item.id" ng-model="selected"></select>
+        <select id="category">
+            <option>Medical</option>
+            <option>Pharmacy</option>
+            <option>Dental</option>
+            <option>Optometry</option>
+            <option>Chiropractic</option>
+            <option>Physical Therapy</option>
+        </select>-->
+    
+    Expense: <input ng-model="controller.newExpense.cost" />
+    <br /><br />
+    Physician: <input ng-model="controller.newExpense.physician" placeholder="Optional" />
+    <br />
+    <!--<input type="text" name="email" placeholder="Enter your email" /> -->
+    <p>Description:</p>
+    <textarea ng-model="controller.newExpense.description" cols="50" rows="4" placeholder="Optional"></textarea>
+    <br />
+    <input type="submit" />
+</form>
