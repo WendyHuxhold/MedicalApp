@@ -7,9 +7,17 @@ body {
     flex-direction:column;
 }
 
+#homeView {
+    background-image: url("http://previews.123rf.com/images/nexusplexus/nexusplexus1212/nexusplexus121205627/17056576-Illustration-with-medical-background-having-heart-beat-doctor-and-stethoscope-Stock-Illustration.jpg");
+    background-size: cover;
+    min-height: 100%;
+}
+
+
+
 #detailsView {
     background-image: url("http://pcitraining_production.s3.amazonaws.com/image/shutterstock_70352440.jpg");
-    background-size: cover;
+    background-size: contain;
     background-repeat:no-repeat;
     min-height: 430px;
 }
