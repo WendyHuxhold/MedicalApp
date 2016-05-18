@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using MedicalApp.Models;
 using MedicalApp.Services;
 using Newtonsoft.Json.Serialization;
+using MedicalApp.Infrastructure;
 
 namespace MedicalApp
 {
@@ -54,6 +55,15 @@ namespace MedicalApp
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+
+            //Repositories
+            services.AddScoped<CategoryRepository>();
+            services.AddScoped<ExpenseRepository>();
+            services.AddScoped<UserRepository>();
+
+            //Services
+            services.AddScoped<CategoryService>();
+            services.AddScoped<ExpenseService>();
 
             // convert Pascal to Camel
             services.AddMvc().AddJsonOptions(options => {

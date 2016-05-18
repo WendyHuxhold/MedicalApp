@@ -1,5 +1,5 @@
-<fieldset>
-    <legend>Login with a Social Provider</legend>
+<!--<fieldset>
+    <legend>Login with a Social Provider</legend> -->
 
     <ul>
         <li ng-repeat="externalLogin in account.externalLogins">
@@ -7,10 +7,10 @@
         </li>
     </ul>
 
-</fieldset>
+<!--</fieldset> -->
 
 <fieldset>
-    <legend>Login Locally</legend>
+    <legend>Login:</legend>
     <ul>
         <li ng-repeat="error in controller.validationMessages">
             {{error}}
@@ -24,7 +24,7 @@
         </div>
         <div>
             <label>Password:</label>
-            <input ng-model="controller.loginUser.password" />
+            <input ng-model="controller.loginUser.password" type="password" />
         </div>
         <input type="submit" value="Login" />
         <a href="/register">Register</a>

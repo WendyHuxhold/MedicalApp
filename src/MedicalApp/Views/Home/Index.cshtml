@@ -3,30 +3,35 @@
     <title>MedicalApp</title>
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
     <link href="~/css/site.css" rel="stylesheet" />
     <base href="/" />
 </head>
-<body>
-        <header>
-            
-            <center><h2>
-                M.E.T. <i class="fa fa-plus-square" aria-hidden="true"></i>
-                
-                </h2></center>
-        </header>
-        <div>
+<body class="flex-col" ng-controller="AccountController as account">
+    <header class="flex-col f-ai-c">
+
+        <h2>
+            M.E.T. <i class="fa fa-plus-square" aria-hidden="true"></i>
+
+        </h2>
+
+        <div class="f-as-fs">
             <a href="/">Home</a> /
             <a ui-sref="list">List</a> /
             <a href="/add">Add Medical Expense</a> /
-            <a href="/reportForm">Report Form</a>
+            <a href="/reportForm">Report Form</a> /
+            <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
+            <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
+            <div ng-show="account.isLoggedIn()">
+                [{{account.getUserName()}}]
+            </div>
 
         </div>
-        <hr />
+    </header>
 
-        <ui-view></ui-view>
-    
-    <footer>
+    <ui-view class="flex-grow"></ui-view>
+
+    <footer class="flex-col f-ai-c">
         <span>Medical Expense Tracking</span>
     </footer>
     <!-- Library Files -->
@@ -41,6 +46,9 @@
     <script src="~/ngapp/app.js"></script>
     <script src="~/ngapp/controllers/controllers.js"></script>
     <script src="~/ngapp/services/services.js"></script>
+
+    <script src="~/ngApp/controllers/accountController.js"></script>
+    <script src="~/ngApp/services/accountService.js"></script>
 
 
 </body>

@@ -1,6 +1,7 @@
+html, body {
+    margin: 0;
+}
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
     background-color: lightblue;
     min-height: 100vh;
     display: flex;
@@ -13,7 +14,9 @@ body {
     min-height: 100%;
 }
 
-
+#addView {
+    max-height: 430px;
+}
 
 #detailsView {
     background-image: url("http://pcitraining_production.s3.amazonaws.com/image/shutterstock_70352440.jpg");
@@ -22,41 +25,53 @@ body {
     min-height: 430px;
 }
 
-header, footer{
+.flex-row {
     display: flex;
-    justify-content: center;    
+    flex-direction: row;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.f-jc-sb {
+    justify-content: space-between;
+}
+
+.f-jc-sa {
+    justify-content: space-around;
+}
+
+.f-jc-c {
+    justify-content: center;
+}
+
+.f-ai-c {
+    align-items: center;
+}
+
+.f-as-fs {
+    align-self: flex-start;
+}
+
+.flex-grow {
+    flex: 1;
 }
 
 ui-view {
     flex: 1;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.max-width-fifty{
+    max-width: 40%;
 }
 
-/* Set widths on the form inputs since otherwise they're 100% wide */
-input,
-select,
-textarea {
-    max-width: 280px;
+.margins {
+    margin-bottom: 15px;
+    margin-top: 8px;
 }
 
-/* Carousel */
-.carousel-caption {
-    z-index: 10 !important;
-}
-
-    .carousel-caption p {
-        font-size: 20px;
-        line-height: 1.4;
-    }
-
-@media (min-width: 768px) {
-    .carousel-caption {
-        z-index: 10 !important;
-    }
+footer {
+    padding: 15px;
 }

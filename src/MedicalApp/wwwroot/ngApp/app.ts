@@ -31,6 +31,24 @@ namespace MedicalApp {
                 controller: MedicalApp.Controllers.BasicListController,
                 controllerAs: 'controller'
             })
+            .state('login', {
+                url: '/login',
+                templateUrl: '/ngApp/views/login.html',
+                controller: MedicalApp.Controllers.LoginController,
+                controllerAs: 'controller'
+            })
+            .state('register', {
+                url: '/register',
+                templateUrl: '/ngApp/views/register.html',
+                controller: MedicalApp.Controllers.RegisterController,
+                controllerAs: 'controller'
+            })
+            .state('report', {
+                url: '/report',
+                templateUrl: '/ngApp/views/report.html',
+                controller: MedicalApp.Controllers.BasicListController,
+                controllerAs: 'controller'
+            })
             .state('notFound', {
                 url: '/notFound',
                 templateUrl: '/ngApp/views/notFound.html'
@@ -44,5 +62,26 @@ namespace MedicalApp {
     });
 
     
+    angular.module('MedicalApp').factory('authInterceptor', (
+        $q: ng.IQService,
+        $location: ng.ILocationService
+    ) =>
+        ({
+            request: function (config) {
+                config.headers = config.headers || {};
+                config.headers['X-Requested-With'] = 'XMLHttpRequest';
+                return config;
+            },
+            responseError: function (rejection) {
+                if (rejection.status === 401 || rejection.status === 403) {
+                    $location.path('/login');
+                }
+                return $q.reject(rejection);
+            }
+        })
+    );
 
+    angular.module('MedicalApp').config(function ($httpProvider) {
+        $httpProvider.interceptors.push('authInterceptor');
+    });
 }

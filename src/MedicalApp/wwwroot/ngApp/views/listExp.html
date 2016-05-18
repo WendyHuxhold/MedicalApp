@@ -1,5 +1,5 @@
 ﻿<ul>
-    <li ng-repeat="expense in controller.daysOfExpense" ui-sref="details({id: expense.id})">
+    <li ng-repeat="expense in controller.daysOfExpense | orderBy:'-apptDate'" ui-sref="details({id: expense.id})">
         {{expense.apptDate|date:'longDate'}} | {{expense.categoryType}} | {{expense.cost|currency}}
         <span ng-show="expense.physician">| {{expense.physician}} </span>
         <span ng-show="expense.description"> | {{expense.description}} </span>

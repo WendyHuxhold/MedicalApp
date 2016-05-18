@@ -1,47 +1,105 @@
 ﻿<!--<script>
     categories = ['Medical', 'Optical', 'Dental', 'Chiropractic', 'Physical Therapy', 'Pharmacy']
 </script>-->
+<div class="flex-row f-jc-sa">
+    <div class="flex-col flex-grow max-width-fifty">
 
-<form ng-submit="controller.addExpense()">
-    <!--<button ng-click="colors.push({})">add</button>-->
-    <h3>
-        Add Medical Expenses:
-    </h3>
-    First Name: <input ng-model="controller.newExpense.firstName" />
-    Last Name: <input ng-model="controller.newExpense.lastName" />
-    Date: <input ng-model="controller.newExpense.apptDate" />
-    
 
-        <label>
-            Category:
-            <!--<select ng-model="myCategory" ng-options="color.name for color in colors">
-                <option value="">-- choose color --</option>
-            </select>-->
-            <select ng-model="controller.newExpense.categoryType">
-                <option ng-repeat="category in controller.categories">{{category}}</option>
-                
-            </select>
+        <form ng-submit="controller.addExpense()">
+            <!--<button ng-click="colors.push({})">add</button>-->
+            <div class="flex-row">
+                <h3>
+                    Add Medical Expenses:
+                </h3>
+            </div>
+            <div class="flex-col f-ac-sb">
+                <div class="flex-row margins">
+                    <label>
+                        Date:
+                        <br/>
+                        <input ng-model="controller.newExpense.apptDate" type="date" />
+                    </label>
+                </div>
+                <div class="flex-row f-jc-sb margins">
+                    <div>
+                        <label>
+                            First Name:
+                            <br/>
+                            <input ng-model="controller.newExpense.firstName" />
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            Last Name:
+                            <br/>
+                            <input ng-model="controller.newExpense.lastName" />
+                        </label>
+                    </div>
+                </div>
 
-        </label><br />
-
-        <!--<label for="category">Category:</label>
-        //<select ng-options="item as item.label for item in items track by item.id" ng-model="selected"></select>
-        <select id="category">
-            <option>Medical</option>
-            <option>Pharmacy</option>
-            <option>Dental</option>
-            <option>Optometry</option>
-            <option>Chiropractic</option>
-            <option>Physical Therapy</option>
+                <div class="flex-row f-jc-sb margins">
+                    <div>
+                        <label>
+                            Category:
+                            <br/>
+                            <!--<select ng-model="myCategory" ng-options="color.name for color in colors">
+            <option value="">-- choose color --</option>
         </select>-->
-    
-    Expense: <input ng-model="controller.newExpense.cost" />
-    <br /><br />
-    Physician: <input ng-model="controller.newExpense.physician" placeholder="Optional" />
-    <br />
-    <!--<input type="text" name="email" placeholder="Enter your email" /> -->
-    <p>Description:</p>
-    <textarea ng-model="controller.newExpense.description" cols="50" rows="4" placeholder="Optional"></textarea>
-    <br />
-    <input type="submit" />
-</form>
+                            <select ng-model="controller.newExpense.categoryType">
+                                <option ng-repeat="category in controller.categories">{{category.catType}}</option>
+
+                            </select>
+                            <br />
+                            <span class="error" ng-repeat="error in controller.errors.category">
+                                {{error}}
+                            </span>
+                        </label>
+                    </div>
+
+
+                    <!--<label for="category">Category:</label>
+                    //<select ng-options="item as item.label for item in items track by item.id" ng-model="selected"></select>
+                    <select id="category">
+                        <option>Medical</option>
+                        <option>Pharmacy</option>
+                        <option>Dental</option>
+                        <option>Optometry</option>
+                        <option>Chiropractic</option>
+                        <option>Physical Therapy</option>
+                    </select>-->
+                    <div>
+                        <label>
+                            Expense:
+                            <br/>
+                            <input ng-model="controller.newExpense.cost" />
+                            <br/>
+                            <span class="error" ng-repeat="error in controller.errors.cost">
+                                {{error}}
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex-row margins">
+                    <label>
+                        Physician:
+                        <br />
+                        <input ng-model="controller.newExpense.physician" placeholder="Optional" />
+                    </label>
+                </div>
+                <div class="flex-row margins">
+                    <!--<input type="text" name="email" placeholder="Enter your email" /> -->
+                    <label>
+                        Description:
+                        <br />
+                        <textarea ng-model="controller.newExpense.description" cols="50" rows="4" placeholder="Optional"></textarea>
+                    </label>
+                </div>
+                <div class="flex-row margins">
+                    <input type="submit" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <img id="addView" src="http://pcitraining_production.s3.amazonaws.com/image/shutterstock_70352440.jpg" />
+</div>

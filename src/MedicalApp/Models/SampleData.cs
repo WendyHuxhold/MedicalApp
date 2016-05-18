@@ -45,13 +45,13 @@ namespace MedicalApp.Models
             db.SaveChanges();
 
             var userManager = serviceProvider.GetService<UserManager<ApplicationUser>>();
-            var wendy = await userManager.FindByNameAsync("WendyHuxhold");
+            var wendy = await userManager.FindByNameAsync("wlhinoz@gmail.com");
             if (wendy == null)
             {
                 //create user
                 wendy = new ApplicationUser
                 {
-                    UserName = "WendyHuxhold",
+                    UserName = "wlhinoz@gmail.com",
                     Email = "wlhinoz@gmail.com",
                     FirstName = "Wendy",
                     LastName = "Huxhold"

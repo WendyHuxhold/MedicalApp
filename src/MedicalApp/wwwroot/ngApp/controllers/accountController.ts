@@ -39,6 +39,7 @@ namespace MedicalApp.Controllers {
         public validationMessages;
 
         public login() {
+            console.log("hello");
             this.accountService.login(this.loginUser).then(() => {
                 this.$location.path('/');
             }).catch((results) => {

@@ -6,7 +6,7 @@ namespace MedicalApp.Services {
         }
 
         // private is an access modifier, and it is dependency injected
-        constructor(private $http: ng.IHttpService) {
+        constructor(private $http: ng.IHttpService, private $state: ng.ui.IStateService) {
         }
 
         public getSingleExpense(id) {
@@ -84,8 +84,8 @@ namespace MedicalApp.Services {
         //];
 
         public addExpense(newExpense) {
-            this.$http.post('/api/expenses', newExpense)
-                .then((response) => { this.$state.go("list"); });
+            return this.$http.post('/api/expenses', newExpense);
+                
 
             //this.expenses.push(newExpense);
             //newExpense.id = this.expenses.length;
